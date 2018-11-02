@@ -21,7 +21,9 @@
 public class ProblemSet4 {
 	
 	public static void main(String[] args) {
-		
+		ProblemSet4 ps = new ProblemSet4();
+		ps.surroundme("<<>>", "abc");
+		ps.endsMeet("qwerty", 2); 
 	}
 	
 	/**
@@ -39,6 +41,17 @@ public class ProblemSet4 {
 	 */
 	
 	// your method signature here
+	public void surroundme(String out, String in) {
+		int out_length = out.length();
+		int in_length = in.length();
+		if(out_length == 4 && in_length == 3) {
+			String first = out.substring(0,2) + in + out.substring(2);
+			System.out.println(first);
+		}else {
+			System.out.println("null");
+		}
+		
+	}
 	
 	/**
 	 * @endsMeet is a public method that accepts a String and an integer as input, and
@@ -55,7 +68,19 @@ public class ProblemSet4 {
 	 */
 	
 	// your method signature here
-	
+	public String endsMeet(String str, int n) {
+		int str_len = str.length();
+		if((str == null) || (str_len < 1 && str_len > 10))
+			return null;
+		if (n < 1) {
+			return null;
+		}else{
+			int num = (str.length()-n);
+			String start = str.substring(0,n) + str.substring(num,str.length());
+			System.out.println(start);
+			return start;
+		}
+	}
 	/**
 	 * @middleMan is a public method that accepts a single String as input, and
 	 * returns a single String as output.
@@ -68,7 +93,14 @@ public class ProblemSet4 {
 	 * 
 	 * @return a 3-character String constructed from the middle 3 characters of @str
 	 */
-	
+	public String middleMan(String str, String str_out) {
+		int str_len = str.length();
+		if(str_len % 2 == 0 || str_len > 3)
+		return null;
+		}else{
+		
+		return str_out;
+	}
 	// your method signature here
 	
 	/**
