@@ -93,12 +93,12 @@ public class ProblemSet4 {
 	 * 
 	 * @return a 3-character String constructed from the middle 3 characters of @str
 	 */
-	public String middleMan(String str, String str_out) {
+	public String middleMan(String str) {
 		int str_len = str.length();
-		if(str_len % 2 == 0 || str_len > 3)
+		if(str_len % 2 == 0 || str == null);
 		return null;
-		}else{
-		
+		int str_mid = str_len /2;
+		str_out = str.substring(str_mid -1, str_mid +2);
 		return str_out;
 	}
 	// your method signature here
@@ -115,7 +115,14 @@ public class ProblemSet4 {
 	 * 
 	 * @return a String where each character in @str is duplicated in the format AABBCC
 	 */
-	
+	public String doubleVision(String str) {
+		str_len = str.length();
+		if (str == null || str_len < 1);
+		return null;
+		for (int i = 0; i < str_len; i++)
+		str_out += str.charAt(i) + "" + str.charAt(i);
+		return str_out;
+	}
 	// your method signature here
 	
 	/**
@@ -132,7 +139,14 @@ public class ProblemSet4 {
 	 * 
 	 * @return true if @target is in the middle of @str and false if it is not
 	 */
-	
+	public boolean centererd(String str, String target) {
+		if(target == null || str == null || target.length() !=3)
+		return false;
+		if ((int) mid == mid)
+			return str.substring((int) mid - 2, (int) mid + 1).equals(target) || str.substring( (int) mid - 1, (int) mid + 2).equals(target);
+		else
+			return str.substring((int) mid - 1, (int) mid + 2).equals(target);
+	}
 	// your method signature here
 	
 	/**
@@ -148,7 +162,24 @@ public class ProblemSet4 {
 	 * 
 	 * @return the result of the operation as an @int
 	 */
-	
+		public int upOrDown(double number, char operation) {
+		int result = 0;
+		switch(operation) {
+			case 'r':
+				result = (int) Math.round(number);
+				break;
+			case 'f':
+				result = (int) Math.floor(number);
+				break;
+			case 'c':
+				result = (int) Math.ceil(number);
+				break;
+			default:
+				result = -1;
+				break;
+		}
+		return result;
+	}
 	// your method signature here
 	
 	/**
@@ -166,7 +197,28 @@ public class ProblemSet4 {
 	 * 
 	 * @return the number of words in @text that end with @end
 	 */
-	
+	public int countMe(String text, char end) {
+		if (!Character.isAlphabetic(end) || text == null)
+			return -1;
+		int count = 0;
+		String wordEnd;
+		for (int i = 0; i < text.length() - 1; i++) {
+			if (!Character.isAlphabetic(text.charAt(i)) && !Character.isWhitespace(text.charAt(i)))
+				return -1;
+
+			wordEnd = text.substring(i, i+2);
+			if (Character.isWhitespace(wordEnd.charAt(1)) && wordEnd.charAt(0) == end)
+				count++;
+		}
+
+		if (!Character.isAlphabetic(text.charAt(text.length() - 1)) && !Character.isWhitespace(text.charAt(text.length() - 1)))
+			return -1;
+		else if (text.charAt(text.length() - 1) == end)
+			count++;
+
+		return count;
+	}
+
 	// your method signature here
 	
 	/**
@@ -181,7 +233,20 @@ public class ProblemSet4 {
 	 * 
 	 * @return true if the appearances of is == the appearances of not; false otherwise
 	 */
-	
+	public boolean isNotEqual(String str) {
+		if (str == null) return false;
+		int isCount = 0;
+		int notCount = 0;
+		for (int i = 0; i < str.length() - 1; i++) {
+			if (str.substring(i, i + 2).equals("is"))
+				isCount++;
+			else if (i < str.length() - 2) {
+				if (str.substring(i, i + 3).equals("not"))
+					notCount++;
+			}
+		}
+		return isCount == notCount;
+	}
 	// your method signature here
 	
 	/**
@@ -197,7 +262,18 @@ public class ProblemSet4 {
 	 * 
 	 * @return the number of triplets in @str
 	 */
-	
+	public int triplets(String str) {
+		if (str == null) return -1;
+		int count = 0;
+		for (int i = 0; i < str.length() - 2; i++) {
+			if (!Character.isAlphabetic(str.charAt(i)))
+				return -1;
+			if (str.charAt(i) == str.charAt(i + 1) && str.charAt(i) == str.charAt(i + 2))
+				count++;
+		}
+		return count;
+	}
+
 	// your method signature here
 	
 	/**
